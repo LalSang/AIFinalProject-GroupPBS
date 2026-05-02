@@ -1,0 +1,37 @@
+{
+  "station_metadata": [
+    {
+      "stream_id": "20380357",
+      "files": 25,
+      "raw_rows": 326160,
+      "clean_rows": 315789,
+      "duplicates_removed": 10371,
+      "conflicting_duplicates": 0,
+      "missing_nwm_values": 1,
+      "init_start": "2021-04-21 00:00:00+00:00",
+      "init_end": "2023-04-21 23:00:00+00:00",
+      "valid_start": "2021-04-21 01:00:00+00:00",
+      "valid_end": "2023-04-22 17:00:00+00:00"
+    },
+    {
+      "stream_id": "21609641",
+      "files": 25,
+      "raw_rows": 326160,
+      "clean_rows": 315789,
+      "duplicates_removed": 10371,
+      "conflicting_duplicates": 0,
+      "missing_nwm_values": 0,
+      "init_start": "2021-04-21 00:00:00+00:00",
+      "init_end": "2023-04-21 23:00:00+00:00",
+      "valid_start": "2021-04-21 01:00:00+00:00",
+      "valid_end": "2023-04-22 17:00:00+00:00"
+    }
+  ],
+  "rows": {
+    "combined_raw": 35088,
+    "combined_complete": 33535,
+    "train": 19402,
+    "validation": 4415,
+    "test": 9718
+  }
+}
