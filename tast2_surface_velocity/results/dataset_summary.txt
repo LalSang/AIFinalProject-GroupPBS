@@ -1,0 +1,51 @@
+DoriaNET Dataset Inspection
+==========================
+
+Important interpretation note:
+The supplied PDFs and raw labels describe post-hurricane building damage assessment, not surface-water velocity estimation.
+The prediction target available in this dataset is the ordinal building damage level 0-5.
+
+Raw file counts:
+- FRAME jpg files: 271
+- JSON files: 271
+- MASK jpg files / building instances: 1458
+
+Image dimensions:
+- Frame dimensions: {(1280, 720): 271}
+- Mask dimensions: {(1280, 720): 1458}
+- Corrupted/unreadable frames: none
+- Corrupted/unreadable masks: none
+
+JSON structure:
+- Top-level keys: {'Frame_Name': 271, 'Buildings': 271, 'Capture date': 271, 'Region': 271, 'Original video link': 271}
+- Building row schema inferred from files and PDFs:
+  [building_id, 'latitude, longitude', mask_file, damage_level, stories, annotation_effort, reserved_nan]
+- Buildings per JSON distribution: {1: 26, 2: 16, 3: 37, 4: 39, 5: 43, 6: 36, 7: 24, 8: 10, 9: 10, 10: 11, 11: 3, 12: 4, 13: 4, 14: 4, 16: 3, 17: 1}
+- Bad JSON files: none
+
+Matching checks:
+- Frames missing JSON: none
+- JSON missing frame: none
+- Frames missing any mask: none
+- Mask frame stems missing FRAME: none
+- JSON mask references missing MASK file: none
+- MASK files not referenced by JSON: none
+- Unparsed mask filenames: none
+
+Label and metadata distributions:
+- Damage level counts: {0: 168, 1: 264, 2: 196, 3: 464, 4: 258, 5: 108}
+- Stories counts: {1: 1257, 2: 201}
+- Annotation effort counts: {0: 328, 1: 1029, 2: 101}
+- Video/frame counts: {1: 52, 2: 119, 3: 100}
+- Video/object counts: {1: 168, 2: 755, 3: 535}
+- Unique physical building IDs: 147
+
+Mask filename interpretation:
+- Filename format: <video>_<frame>_B0XX_<object_index>_Level<damage_level>.jpg
+- Parsed mask count: 1458
+- Damage levels from mask filenames: {0: 168, 1: 264, 2: 196, 3: 464, 4: 258, 5: 108}
+- Masks per frame: min=1, max=17, mean=5.38
+
+Task interpretation:
+- This is not optical flow and does not contain water velocity vectors, endpoint-error targets, or sequential flow ground truth.
+- It is a segmentation-assisted ordinal image classification setup: frames + building masks -> damage level.
